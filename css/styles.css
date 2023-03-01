@@ -1,0 +1,270 @@
+:root {
+  --primary-color: #357b70;
+  --secondary-color: #e0b354;
+  --dark-grey: #2b2b2b;
+  --b1-background-color: #357b70;
+  --b2-background-color: #e0b354;
+  --font-weight: 400;
+  --h-font-weight: 700;
+  --font-size: 16px;
+  --line-height: 1.6;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+
+header {
+    font-family: 'Lato', sans-serif;
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+footer {
+    font-family: 'Lato', sans-serif;
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: var(--h-font-weight);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: var(--h-font-weight);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:visited {
+  color: var(--secondary-color);
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  color: var(--dark-grey);
+}
+.button,
+button {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: var(--b1-background-color);
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.2s opacity;
+}
+  
+button:hover, 
+button:focus, 
+ .button:hover,
+ .button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.page-header img {
+  max-height: 120px;
+}
+
+.page-header__item {
+  flex: 0 1 200px;
+}
+
+.page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.profile {
+  min-width: 360px;
+  max-width: 1200px;
+}
+
+.profile {
+max-width: 700px;
+margin: 0 auto;
+}
+
+.profile__portrait {
+float: left;
+width: 250px;
+margin-right: 40px;
+border-radius: 50%;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.page-footer img {
+  max-height: 120px;
+}
+
+.navigation-list {
+  list-style-type: none;
+}
+
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.button__secondary {
+  background-color: var(--b2-background-color);
+  color: var(--dark-grey);
+}
+.navigation-list__item--active {
+  text-decoration: none; 
+}
+.profile {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.exp-table {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+* {
+box-sizing: border-box;
+}
+
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin: 0;
+  }
+  .grid__item {
+  display: inline-block;
+  width: 33%;
+ }
+  .grid__item {
+    background-color: lightgray;
+    width: auto;
+    min-height: auto;
+    margin: 0;
+  }
+  .grid__item:last-child {
+    grid-column: 3 / 3;
+    grid-row: 1 / 3;
+  }
+}
+/* MEDIA */
+
+@media all and (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        width: 85%;
+    }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media all and (max-width: 750px) {
+    .grid {
+        grid-gap: 10px;
+    }
+
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .nav-list {
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+}
+
+@keyframes color-change {
+    from {
+        fill: #edc655;
+    }
+
+    to {
+        fill: #f76414;
+    }
+}
+
+@keyframes color-change {
+    0% {
+        fill: #edc655;
+    }
+
+    50% {
+        fill: #fcffad;
+    }
+
+    100% {
+        fill: #f76414;
+    }
+}
+
+
+.sun {
+    animation: 8s color-change infinite alternate linear;
+}
+
+/* Animation */
+
+@keyframes cloud-move {
+    from {
+        transform: translate(0, 50px);
+    }
+
+    to {
+        transform: translate(200px, 50px);
+    }
+}
+
+.cloud-front {
+    animation-duration: 30s;
+    animation-name: cloud-move;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
